@@ -26,10 +26,6 @@ jobs:
     - name: Accept Android Licenses
       run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
 
-    - name: Install NDK and CMake
-      run: |
-        $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --install "ndk;25.2.9519653" "cmake;3.22.1"
-
     - name: Grant execute permission for gradlew
       run: |
         if [ -f "src/android/gradlew" ]; then chmod +x src/android/gradlew; fi
@@ -45,8 +41,6 @@ jobs:
           echo "Pasta do projeto Android não encontrada!" && exit 1
         fi
         ./gradlew assembleRelease
-      env:
-        ANDROID_NDK_HOME: /usr/local/lib/android/sdk/ndk/25.2.9519653
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
