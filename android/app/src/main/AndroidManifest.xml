@@ -27,15 +27,17 @@
         android:hardwareAccelerated="true"
         tools:targetApi="31" >
 
-        <activity
+                <activity
             android:name="com.otclient.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize"
             android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:hardwareAccelerated="true"
             android:exported="true" >
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                        <meta-data
+                android:name="android.window.layout_in_display_cutout_mode"
+                android:value="always" />
             </intent-filter>
 
             <meta-data
